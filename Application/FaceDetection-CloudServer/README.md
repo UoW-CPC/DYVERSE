@@ -1,12 +1,13 @@
 # Face Detection (FD) Cloud Server
-This is the Cloud server of the face detection application. It detects faces from received video frames.
+This is the Cloud server of the face detection application. Currently, it receives a customisable number of images and
+temporarily stored them in a provided repository.
 
 ## Tested Platform
-We have tested FD Cloud server on AWS EC2 t2.micro with Ubuntu Server 16.04 LTS.
+We have tested FD Cloud server on with Ubuntu and Mac OS.
 
 ## Requirement
 - [Python](https://www.python.org/)
-- [OpenCV](https://opencv.org/)
 
 ## How to use
-```python detectFace.py```
+1. Update various customisable aspects of the program in parameters.py. These aspects can be provided using enviornment variables, if in case running as docker container.
+2. ```python cloudReceive.py```

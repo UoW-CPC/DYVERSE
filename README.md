@@ -1,23 +1,14 @@
-# DYVERSE - DYnamic VERtical Scaling in Multi-tenant Edge Environments
-The vision of Edge computing is to bring computing towards the edge of the network. Our previous work, [ENORM](https://github.com/qub-blesson/ENORM) facilitates the hosting of services closer to user devices that frequently interact with the Cloud so that communication latencies can be reduced. To improve the Edge Computing serives supported by ENORM, DYVERSE further provides priority-based dynamic resource allocation while supporting multiple Edge applications on an Edge node.
+# Real time Face Detection (FD) demo application
+This application is adopted/restructured from the DYVERSE open source project (https://github.com/qub-blesson/DYVERSE). For full details on DYVERSE, please refer to Wang et al. [DYVERSE - DYnamic VERtical Scaling in Multi-tenant Edge Environments](https://arxiv.org/pdf/1810.04608.pdf). From the DYVERSE project, we only modified the Face detection application.  For original structure of the Face detection application and other aspects of the DYVERSE project, please refer to the original repo (https://github.com/qub-blesson/DYVERSE). The details, of the restructured FD application, are as follows:
 
-This is a developing research project and some features might not be stable yet.
+The key changes in the application from the original include:
+1. The development of a client component to be used for the Raspberry pi.
+2. The EdgeServer component is distributed into three smaller component.
+3. Docker containerisation support added.
 
-# License
-All source code, documentation, and related artifacts associated with the DYVERSE open source project are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+The description of each component can be found in their respective directories.
 
 # How to Use
-In addition to the [iPokeMon](https://github.com/qub-blesson/ENORM/tree/master/Application) use case supported in ENORM, a real time Face Detection application is also provided to test DYVERSE. The differences between these two uses cases are:
-1. FD requires both the Edge and the Cloud servers work together to process requests, whereas iPokeMon requires either the Edge or the Cloud server to process requests.
-2. FD does not require a database server, whereas iPokeMon requires a database server.
+We intend to use the FD application in integration with MiCADO-Scale for our in progress work, i.e. the extension of MiCADO-Scale to handle orchestration and runtime management of IoT applications in the cloud-fog-edge ecosystem. The details will appear soon here.  
 
-You will need the code provided in folder *Application* to use the DYVERSE prototype:
-1. Follow instructions of Edge Manager in folder *EdgeManager* to set up the Edge node.
-2. Follow instructions of Cloud Manager in folder *CloudManager* to request (and terminate) Edge service for FD.
-3. Follow instructions of FD Cloud Server in foder *FaceDetection-CloudServer* to set up the Cloud Server
-4. Follow instructions of FD Client in folder *FaceDetection-EdgeServer* to set up the streaming camera.
-
-# Citation
-Please cite [DYVERSE - DYnamic VERtical Scaling in Multi-tenant Edge Environments](https://arxiv.org/pdf/1810.04608.pdf) when using this project as follows:
-
-N. Wang, B. Varghese, M. Matthaiou, and D. S. Nikolopoulos, "DYVERSE - DYnamic VERtical Scaling in Multi-tenant Edge Environments," arXiv:1810.04608, 2018.  
+The FD application can also used independently, i.e. without MiCADO-Scale. The usage details of each component can be found in the respective readme files. 

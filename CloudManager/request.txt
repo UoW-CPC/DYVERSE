@@ -1,7 +1,0 @@
-App FD
-Ports 4096
-Premium 1
-Objective 2000
-Donation Yes
-Threshold 0.8
-Database No

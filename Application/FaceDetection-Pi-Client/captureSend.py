@@ -5,16 +5,16 @@ Using socket to read from the jpg and send
 it to remote address.
 """
 
-import cv2
 from socket import *
 from parameters import *
 import time
 import logging
+from time import sleep
+from picamera import PiCamera
 
-cap = cv2.VideoCapture(0)
-
-FPS = cap.get(5)
-ratio = int(FPS)/frame_per_second
+camera = PiCamera()
+camera.resolution = (640, 480)
+camera.framerate = frame_per_second
 
 addr = (remote_host, remote_port)
 
@@ -32,24 +32,20 @@ def sendFile(fName):
     logger.info("Image sent.")
 
 def captureFunc():
-    count = 0
     logger.info("FPS=> {0}".format(frame_per_second))
-    logger.info("Sleep duration bw two images => {0}".format(delay_bw_images))
-    while(cap.isOpened()):
-        ret, frame = cap.read()
-        if ret == True:
-            count = count + 1
-            if count == ratio:
-                logger.info ("Start time=> {0}".format(time.time()))
-                cv2.imwrite("img.jpg", frame)
-                sendFile("img.jpg")
-                count = 0
-                time.sleep(delay_bw_images)
-                #break
-
+    logger.info("Sleep duration => {0}".format(delay_bw_images))
+    logger.info("Frame rate => {0}".format(camera.framerate))
+    while(1):
+        #camera.start_preview()
+        logger.info ("Start time=> {0}".format(time.time()))
+        camera.capture('images/img.jpg', quality=10)
+        sendFile("images/img.jpg")
+        sleep(delay_bw_images)
+        
 if __name__ == '__main__':
     global logger
-    logger =  logging.getLogger("fd-client."+__name__)
+    logger =  logging.getLogger("fd-pi-client."+__name__)
     logging.basicConfig(level=logging.DEBUG)
     captureFunc()
-    cap.release()
+    camera.close()
+    exit()
