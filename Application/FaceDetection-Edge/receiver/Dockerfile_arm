@@ -1,0 +1,10 @@
+FROM arm32v7/python:3.6-buster
+WORKDIR /var/lib/fd-edge-rec
+
+COPY . .
+
+RUN mkdir images
+
+ENV PYTHONPATH=/var/lib/fd-edge-rec
+
+ENTRYPOINT python3 rec.py
