@@ -4,7 +4,7 @@ WORKDIR /var/lib/fd-pi-client
 
 COPY . .
 
-RUN pip install -r requirements.txt \
+RUN pip3 install -r requirements.txt \
 && rm requirements.txt
 
 ENV PYTHONPATH=/var/lib/fd-pi-client
