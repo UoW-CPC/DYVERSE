@@ -38,8 +38,8 @@ def captureFunc():
     while(1):
         #camera.start_preview()
         logger.info ("Start time=> {0}".format(time.time()))
-        camera.capture('images/img.jpg', quality=10)
-        sendFile("images/img.jpg")
+        camera.capture('img.jpg', quality=10)
+        sendFile("img.jpg")
         sleep(delay_bw_images)
         
 if __name__ == '__main__':
