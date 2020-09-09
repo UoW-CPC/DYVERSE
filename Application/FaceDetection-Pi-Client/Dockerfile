@@ -9,8 +9,9 @@ FROM balenalib/raspberrypi3-debian-python:latest
 COPY --from=builder qemu-arm-static /usr/bin
 WORKDIR /var/lib/fd-pi-client
 COPY . .
-export READTHEDOCS=True
-RUN pip install -r requirements.txt \
+
+RUN READTHEDOCS=True pip install picamera
+#RUN pip install -r requirements.txt \
 && rm requirements.txt
 ENV PYTHONPATH=/var/lib/fd-pi-client
 ENTRYPOINT python3 captureSend.py
