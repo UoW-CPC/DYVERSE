@@ -1,5 +1,5 @@
-FROM arm32v7/python:3.6-buster
-
+#FROM arm32v7/python:3.6-buster
+FROM balenalib/raspberrypi3-debian-python:latest
 WORKDIR /var/lib/fd-edge-send
 
 COPY . .
