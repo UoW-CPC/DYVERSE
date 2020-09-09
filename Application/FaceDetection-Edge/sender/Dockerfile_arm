@@ -1,5 +1,12 @@
-#FROM arm32v7/python:3.6-buster
+FROM alpine AS builder
+# Download QEMU, see https://github.com/docker/hub-feedback/issues/1261
+ENV QEMU_URL https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/qemu-3.0.0+resin-arm.tar.gz
+RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
+
 FROM balenalib/raspberrypi3-debian-python:latest
+# Add QEMU
+COPY --from=builder qemu-arm-static /usr/bin
+
 WORKDIR /var/lib/fd-edge-send
 
 COPY . .
