@@ -9,7 +9,7 @@ FROM balenalib/raspberrypi3-debian:buster
 COPY --from=builder qemu-arm-static /usr/bin
 WORKDIR /var/lib/fd-pi-client
 COPY . .
-RUN pip3 install -r requirements.txt \
+RUN pip install -r requirements.txt \
 && rm requirements.txt
 ENV PYTHONPATH=/var/lib/fd-pi-client
 ENTRYPOINT python3 captureSend.py
