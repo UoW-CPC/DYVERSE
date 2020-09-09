@@ -4,7 +4,7 @@ ENV QEMU_URL https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/
 RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 
 #FROM arm32v7/python:3.6-buster
-FROM balenalib/raspberrypi3-debian:buster
+FROM balenalib/raspberrypi3-debian-python:latest
 # Add QEMU
 COPY --from=builder qemu-arm-static /usr/bin
 WORKDIR /var/lib/fd-pi-client
