@@ -4,8 +4,8 @@ WORKDIR /var/lib/fd-edge
 
 COPY . .
 
-RUN pip3 install -r requirements.txt \
-&& rm requirements.txt
+RUN pip3 install image
+RUN pip3 install opencv-python-headless
 
 RUN mkdir images
 RUN mkdir greyImages
