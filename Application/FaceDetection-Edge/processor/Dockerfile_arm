@@ -1,4 +1,5 @@
-FROM arm32v7/python:3.6-buster
+FROM resin/raspberry-pi-python:3.6-slim
+
 WORKDIR /var/lib/fd-edge
 
 COPY . .
@@ -11,4 +12,4 @@ RUN mkdir greyImages
 
 ENV PYTHONPATH=/var/lib/fd-edge
 
-ENTRYPOINT python3 2grey.py
+CMD ["python3","2grey.py"]
