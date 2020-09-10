@@ -27,4 +27,4 @@ RUN READTHEDOCS=True pip install picamera
 
 ENV PYTHONPATH=/var/lib/fd-pi-client
 
-ENTRYPOINT python3 captureSend.py
+ENTRYPOINT python3 /var/lib/fd-pi-client/captureSend.py
