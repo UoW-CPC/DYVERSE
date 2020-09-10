@@ -17,7 +17,7 @@
 # ENTRYPOINT python3 captureSend.py
 
 
-FROM resin/raspberry-pi-python:3
+FROM resin/raspberry-pi-python:3.6-slim
 
 WORKDIR /var/lib/fd-pi-client
 
