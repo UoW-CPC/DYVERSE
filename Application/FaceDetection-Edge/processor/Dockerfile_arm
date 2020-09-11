@@ -4,6 +4,8 @@ WORKDIR /var/lib/fd-edge
 
 COPY . .
 
+RUN pip install --upgrade pip
+
 RUN pip3 install image
 RUN pip3 install opencv-python-headless
 
