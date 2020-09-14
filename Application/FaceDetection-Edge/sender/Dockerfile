@@ -1,11 +1,11 @@
 FROM python:3.6-slim
 
-WORKDIR /var/lib/fd-edge-send
+WORKDIR /var/lib/fd-edge
 
 COPY . .
 
 RUN mkdir greyImages
 
-ENV PYTHONPATH=/var/lib/fd-edge-send
+ENV PYTHONPATH=/var/lib/fd-edge
 
 ENTRYPOINT python3 edgeSend.py
