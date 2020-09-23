@@ -1,8 +1,8 @@
-# Face Detection (FD) pi-Client
-This is the dummy client of the face detection application for Raspberry pi. It keep sending images from a static repository to a remote server.
+# Face Detection (FD) dummy-Client
+This is the dummy client of the face detection application. It keep sending images from a static directory to a remote server.
 
 ## Tested Platform
-We have tested this program on Raspberry pi.
+We have tested this program on Raspberry pi, Ubuntu and Mac os.
 
 ## Requirement
 - [Python](https://www.python.org/)
